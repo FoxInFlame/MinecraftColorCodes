@@ -41,6 +41,12 @@ $(document).ready(function(){
 ```
 https://mcapi.us provides JSON responses from the server provided in the URL. By using this, you can parse the JSON, and get your desired information! Visit http://mcapi.us for more information on the JSON format.
 
+
+##Bugs
+- §k does not work.   ->This is not supposed to work yet. I have not found a way to randomize the text that often in javascript.
+
+If you find more, please submit a ticket.
+
 ##Terms of Service
 By using this JS file, you agree to the Terms of Conditions below.
 - You can not modify this file in any way.
