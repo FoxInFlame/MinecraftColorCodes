@@ -1,1 +1,135 @@
-<h1>EHASD</h1>
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Minecraftcolorcodes by FoxInFlame</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Minecraftcolorcodes</h1>
+      <h2 class="project-tagline">A Javascript Plugin for translating Minecraft Color Codes!</h2>
+      <a href="https://github.com/FoxInFlame/MinecraftColorCodes" class="btn">View on GitHub</a>
+      <a href="https://github.com/FoxInFlame/MinecraftColorCodes/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/FoxInFlame/MinecraftColorCodes/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="minecraftcolorcodes" class="anchor" href="#minecraftcolorcodes" aria-hidden="true"><span class="octicon octicon-link"></span></a>MinecraftColorCodes</h1>
+
+<h3>
+<a id="a-javascript-library-to-translate-minecraft-color-codes-into-html" class="anchor" href="#a-javascript-library-to-translate-minecraft-color-codes-into-html" aria-hidden="true"><span class="octicon octicon-link"></span></a>A Javascript library to translate Minecraft color codes into HTML.</h3>
+
+<p>Recently, I was making my own Minecraft Server website, and I wanted to display the MOTD and the amount of players online.
+Then, came the problem.
+When loading the MOTD, I stumbled across this weird character. §
+After searching, I realised this was a piece of Minecraft Color Codes...</p>
+
+<p>I decided to translate this into HTML using JavaScript, and I wanted to share this with all of you around the world with the same problem.</p>
+
+<p>[NOTE:] §k does not yet work. Other than that, enjoy!</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Download the Zip, and unzip it.
+Then, copy MinecraftColorCodes.js into your initial directory of your website.
+Open your HTML file for your website, and copy this into your </p> section.
+
+<pre><code>&lt;head&gt;
+&lt;script src="MinecraftColorCodes.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</code></pre>
+
+<p>You are now ready to launch!</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Open your HTML file for your website, and insert this, at the bottom of your page.</p>
+
+<pre><code>&lt;script&gt;
+var myMOTD = "§d§lMy Example MOTD: §eDoes it look nice?"
+var myTranslatedMOTD = replaceColorCodes(myMOTD);
+console.log(myTranslatedMOTD)
+&lt;/script&gt;
+</code></pre>
+
+<p>Now, if you don't understand a piece of that code, you probably don't know JavaScript.
+There are amazing website on the internet that provide you a full tutorial and a lesson on how to use JavaScript.
+People who <strong>do</strong> know Javascript, can probably understand all the lines.
+Basically, the first line states, that the variable myMOTD is now "blahblah".
+The second line states, that the variable myTranslatedMOTD is the same as myMOTD but with replaced color codes.
+The third line throws the Translated MOTD into the console, available when you press F12.</p>
+
+<p>Easy huh?</p>
+
+<h2>
+<a id="to-do-list" class="anchor" href="#to-do-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>To-Do List</h2>
+
+<ul>
+<li>Random §k</li>
+<li>Other Stuff and things</li>
+</ul>
+
+<h2>
+<a id="bugs" class="anchor" href="#bugs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bugs</h2>
+
+<ul>
+<li>
+<strong>Hey, the §k doesn't work!</strong>
+That, isn't supposed to work yet dummy. I am working on a way to randomize the text...</li>
+</ul>
+
+<h2>
+<a id="terms-of-service" class="anchor" href="#terms-of-service" aria-hidden="true"><span class="octicon octicon-link"></span></a>Terms of Service</h2>
+
+<p>By using this library, you agree to the Terms of Conditions below.</p>
+
+<ul>
+<li>You can not modify this file in any way.</li>
+<li>You can not sell this file for a price.</li>
+<li>You can not give away this file without giving credit to me.</li>
+</ul>
+
+<h2>
+<a id="extras" class="anchor" href="#extras" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extras</h2>
+
+<p>You might want to get your server's MOTD, but you don't know how to access the server from your website? Use this code! (jQuery is needed!)</p>
+
+<pre><code>$(document).ready(function(){
+  $.getJSON('https://mcapi.us/server/status?ip=c.nerd.nu', function(obj){
+    if(obj.online === true){
+      motdHTML = replaceColorCodes(obj.motd);
+      console.log(motdHTML);
+    } else {
+      console.log("Server is offline...");
+    }
+  });
+})
+</code></pre>
+
+<p><a href="https://mcapi.us">https://mcapi.us</a> provides JSON responses from the server provided in the URL. By using this, you can parse the JSON, and get your desired information! Visit <a href="http://mcapi.us">http://mcapi.us</a> for more information on the JSON format.</p>
+
+<p>Basically, it gets the JSON from the website once your website has finished loading, then converts the Color Codes if the server is online, and if the server is offline... Well yeah.</p>
+
+<h2>
+<a id="thank-you-everyone-for-the-downloads-and-enjoy" class="anchor" href="#thank-you-everyone-for-the-downloads-and-enjoy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Thank you everyone for the downloads, and Enjoy!</h2>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/FoxInFlame/MinecraftColorCodes">Minecraftcolorcodes</a> is maintained by <a href="https://github.com/FoxInFlame">FoxInFlame</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
