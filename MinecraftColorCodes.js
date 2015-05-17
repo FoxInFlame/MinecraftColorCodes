@@ -1,3 +1,4 @@
+//Update 1.2
 function replaceColorCodes(motd){
   var RAWmotd = "<p><var style='font-style:normal;font-weight:normal;text-decoration:none'>" + motd + "</var></p>";
   /*First let's place the color ones...*/
