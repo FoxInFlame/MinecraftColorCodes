@@ -47,6 +47,11 @@ https://mcapi.us provides JSON responses from the server provided in the URL. By
 
 If you find more, please submit a ticket.
 
+##Updates
+v1.0 - Created this file, added replacements for color codes
+v1.1 - Added formatting replacements (e.g. §l)
+v1.2 - Added support for multiple occurence of one color code in a string
+
 ##Terms of Service
 By using this JS file, you agree to the Terms of Conditions below.
 - You can not modify this file in any way.
