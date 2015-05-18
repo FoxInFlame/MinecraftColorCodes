@@ -1,12 +1,9 @@
 //Update 1.3
 function replaceColorCodes(motd){
   var RAWmotd = "<p><var style='font-style:normal;font-weight:normal;text-decoration:none'>" + motd + "</var></p>";
-
-  /*First replace all the spaces...*/
-  var motdCutSPACES = replaceAll(" ","&#32;",RAWmotd);
   
-  /*Then let's place the color ones...*/
-  var motdCutRED = replaceAll("§4","</var></span><span style='color:#be0000'><var style='font-style:normal'>",motdCutSPACES);
+  /*First let's place the color ones...*/
+  var motdCutRED = replaceAll("§4","</var></span><span style='color:#be0000'><var style='font-style:normal'>",RAWmotd);
   var motdCutLIGHT_RED = replaceAll("§c","</var></span><span style='color:#fe3f3f'><var style='font-style:normal'>",motdCutRED);
   var motdCutPOOP = replaceAll("§6","</var></span><span style='color:#d9a334'><var style='font-style:normal'>",motdCutLIGHT_RED);
   var motdCutYELLOW = replaceAll("§e","</var></span><span style='color:#fefe3f'><var style='font-style:normal'>",motdCutPOOP);
