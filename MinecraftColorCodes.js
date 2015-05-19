@@ -1,59 +1,61 @@
-//Update 1.4
-function replaceColorCodes(motd){
-  var RAWmotd = "<p><var style='font-style:normal;font-weight:normal;text-decoration:none'>" + motd + "</var></p>";
-
-  /*Then let's place the color ones...*/
-  var motdCutRED = replaceAll("§4","</var></span><span style='color:#be0000'><var style='font-style:normal'>",RAWmotd);
-  var motdCutLIGHT_RED = replaceAll("§c","</var></span><span style='color:#fe3f3f'><var style='font-style:normal'>",motdCutRED);
-  var motdCutPOOP = replaceAll("§6","</var></span><span style='color:#d9a334'><var style='font-style:normal'>",motdCutLIGHT_RED);
-  var motdCutYELLOW = replaceAll("§e","</var></span><span style='color:#fefe3f'><var style='font-style:normal'>",motdCutPOOP);
-  var motdCutDARK_GREEN = replaceAll("§2","</var></span><span style='color:#00be00'><var style='font-style:normal'>",motdCutYELLOW);
-  var motdCutGREEN = replaceAll("§a","</var></span><span style='color:#3ffe3f'><var style='font-style:normal'>",motdCutDARK_GREEN);
-  var motdCutLIGHT_BLUE = replaceAll("§b","</var></span><span style='color:#3ffe3f'><var style='font-style:normal'>",motdCutGREEN);
-  var motdCutCYAN = replaceAll("§3","</var></span><span style='color:#00bebe'><var style='font-style:normal'>",motdCutLIGHT_BLUE);
-  var motdCutDARK_BLUE = replaceAll("§1","</var></span><span style='color:#0000be'><var style='font-style:normal'>",motdCutCYAN);
-  var motdCutBLUE = replaceAll("§9","</var></span><span style='color:#3f3ffe'><var style='font-style:normal'>",motdCutDARK_BLUE);
-  var motdCutPINK = replaceAll("§d","</var></span><span style='color:#fe3ffe'><var style='font-style:normal'>",motdCutBLUE);
-  var motdCutPURPLE = replaceAll("§5","</var></span><span style='color:#be00be'><var style='font-style:normal'>",motdCutPINK);
-  var motdCutWHITE = replaceAll("§f","</var></span><span style='color:#ffffff'><var style='font-style:normal'>",motdCutPURPLE);
-  var motdCutLIGHT_GRAY = replaceAll("§7","</var></span><span style='color:#bebebe'><var style='font-style:normal'>",motdCutWHITE);
-  var motdCutGRAY = replaceAll("§8","</var></span><span style='color:#3f3f3f'><var style='font-style:normal'>",motdCutLIGHT_GRAY);
-  var motdCutBLACK = replaceAll("§0","</var></span><span style='color:#000000'><var style='font-style:normal'>",motdCutGRAY);
-  
-  /*Now, for the weird formatting stuff!*/
-  var Formatting = "none";
-  if(isEven(getMatches("§l",motdCutBLACK)) && getMatches("§l",motdCutBLACK) != 0){
-    Formatting = "Strikethrough";
-    var motdUntilFirst = motdCutBLACK.substring(0, motdCutBLACK.indexOf("§l"));
-    var motdFromFirstToSecond = motdCutBLACK.substring(motdCutBLACK.indexOf("§l"),getMatches("§l",motdCutBLACK, 1));
-  }
-  
-  var motdCutBOLD = replaceAll("§l","</var><var style='text-decoration:none;font-style:normal;font-weight:bold'>",motdCutBLACK);
-  var motdCutUNDERLINE = replaceAll("§n","</var><var style='text-decoration:underline;font-style:normal;font-weight:normal",motdCutBOLD);
-  var motdCutITALIC = replaceAll("§o","</var><var style='text-decoration:none;font-style:italic;font-weight:normal'>",motdCutUNDERLINE);
-  var motdCutSTRIKE = replaceAll("§m","<strike>",motdCutITALIC);
-  var motdCutRESET = replaceAll("§r","</var><var style='text-decoration:none;font-style:normal;font-weight:normal'>",motdCutSTRIKE);
-  
-  /*Now, for the New Line! Finally!*/
-  var motdCutNEWLINE = replaceAll("\n","<br>",motdCutRESET);
-  
-  var motdFINAL = motdCutNEWLINE;
-  return motdFINAL;
+//Update 2.0
+var styleMap = {
+  '\n': 'display:block',
+  '§4': 'color:#be0000',
+  '§c': 'color:#fe3f3f',
+  '§6': 'color:#d9a334',
+  '§e': 'color:#fefe3f',
+  '§2': 'color:#00be00',
+  '§a': 'color:#3ffe3f',
+  '§b': 'color:#3ffefe',
+  '§3': 'color:#00bebe',
+  '§1': 'color:#0000be',
+  '§9': 'color:#3f3ffe',
+  '§d': 'color:#fe3ffe',
+  '§5': 'color:#be00be',
+  '§f': 'color:#ffffff',
+  '§7': 'color:#bebebe',
+  '§8': 'color:#3f3f3f',
+  '§0': 'color:#000000',
+  '§l': 'font-weight:bold',
+  '§n': 'text-decoration:underline',
+  '§o': 'font-style:italic',
+  '§m': 'text-decoration:line-through',
+  '§r': 'font-style:normal;text-decoration:none;font-weight:normal'
+};
+function replaceColorCodes(string) {
+    var codes = string.match(/§.{1}/g),
+        indexes = [],
+        apply = [],
+        _tmpStr,
+        final = document.createDocumentFragment();
+    function applyCode(string, codes) {
+        var elem;
+        string = string.replace(/§*/g, '');
+        elem = document.createElement('span');
+        for(var i = 0, len = codes.length; i < len; i++) {
+            elem.style.cssText += styleMap[codes[i]] + ';';
+        }
+        elem.innerHTML = string;
+        return elem;
+    }
+    for(var i = 0, len = codes.length; i < len; i++) {
+        indexes.push( string.indexOf(codes[i]) );
+        string = string.replace(codes[i], '§§');
+    }
+    for(i = 0; i < len; i++) {
+        if(indexes[i + 1] - indexes[i] <= 2) {
+            apply.push( codes[i] );
+            i++;
+        }
+        apply.push( codes[i] );
+        _tmpStr = string.substring(indexes[i], indexes[i + 1]);
+        final.appendChild( applyCode(_tmpStr, apply) );
+        apply = [];
+    }
+    return final;
 }
 
-function replaceAll(find, replace, str) {
-  return str.replace(new RegExp(find, 'g'), replace);
-}
-function getMatches(find, str) {
-  var RegularExp = new RegExp(find, "g");
-  return str.match(RegularExp).length;
-}
-function isEven(n) {
-   return isNumber(n) && (n % 2 == 0);
-}
-function isOdd(n) {
-   return isNumber(n) && (Math.abs(n) % 2 == 1);
-}
-function isNumber(n) {
-  return n === parseFloat(n);
+function cutString(str, cutStart, cutEnd){
+  return str.substr(0,cutStart) + str.substr(cutEnd+1);
 }
