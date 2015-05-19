@@ -45,7 +45,7 @@ https://mcapi.us provides JSON responses from the server provided in the URL. By
 ##Bugs
 - §k does not work.   
 ->This is not supposed to work yet. I have not found a way to randomize the text that often in javascript.
-- Having multiple formatting codes after each other does not work.    
+- [Fixed:]--Having multiple formatting codes after each other does not work.--
 ->This is not intended to work yet. With Javascript, it is hard to detect if the previous one was a formatting code or not.
 
 If you find more, please submit a ticket.
@@ -58,6 +58,8 @@ v1.1 - Added formatting replacements (e.g. §l)
 v1.2 - Added support for multiple occurence of one color code in a string
 
 v1.3 - Added support for New Line, and Spaces because spaces were buggy. The ```\n``` character translates into ```<br>```, and the spaces translate into Unicode spaces (```&#32;```).
+
+v2.0 - A complete recode. Now fixed Bug #2, 'Having multiple formatting codes does not work'. New line and spaces was removed.
 
 ##Terms of Service
 By using this JS file, you agree to the Terms of Conditions below.
