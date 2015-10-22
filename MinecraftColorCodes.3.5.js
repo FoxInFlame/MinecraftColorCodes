@@ -1,4 +1,3 @@
-//Update 3.0
 var obfuscators = [];
 var styleMap = {
     '§4': 'color:#be0000',
@@ -61,7 +60,6 @@ function obfuscate(string, elem) {
 function applyCode(string, codes) {
     var elem = document.createElement('span'),
         obfuscated = false;
-    string = string.replace(/\x00*/g, '');
     for(var i = 0, len = codes.length; i < len; i++) {
         elem.style.cssText += styleMap[codes[i]] + ';';
         if(codes[i] === '§k') {
@@ -116,16 +114,23 @@ function clearObfuscators() {
     }
     obfuscators = [];
 }
-function replaceColorCodes(str, final) {
+function replaceColorCodes(str, final, classNumber) {
     clearObfuscators();
     var parsed = parseStyle(str);
         output = document.getElementById(final);
         if(output === null) {
-          output = document.getElementsByClassName(final)[0];
+          if(typeof classNumber === "undefined"){
+            classNumber = "0";
+          } else {
+            classNumber = classNumber - 1;
+          }
+          output = document.getElementsByClassName(final)[classNumber];
         }
     output.innerHTML = '';
     output.appendChild(parsed);
+    output.style.whiteSpace = "pre";
 }
+
 /////////////////////////////////////////////////
 function cutString(str, cutStart, cutEnd){
   return str.substr(0,cutStart) + str.substr(cutEnd+1);
