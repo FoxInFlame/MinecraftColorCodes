@@ -24,8 +24,10 @@ replaceColorCodes(yourMOTD, "outputDiv");
 <script>
 <div id="outputDiv"></div>
 ```
-Simple enough. Put the string you want in the function ```replaceColorCodes()```, and place the ID of the output element, and voila! You can then do whatever you like with it!
-Do note that only ID's currently work, and the script will probably overwrite anything inside the element. I would suggest you use a ```span``` element with the ID of your choice.
+Simple enough. Put the string you want in the function ```replaceColorCodes()```, and place the ID or class of the output element, and voila! You can then do whatever you like with it!
+When using a class, the script will find the first match. 
+
+Do note that the script will probably overwrite anything inside the element. I would suggest you use a ```span``` element with the class or id of your choice.
 
 ##Extras
 You might want to get your server's MOTD, but you don't know how to access the server from your website?
@@ -50,7 +52,8 @@ No Bugs Found.
 
 If you find one, please submit a ticket.
 
-- Add Class support (Coming Soon)
+- Add Class support (DONE!)
+- Add Support for custom class, like first match, second match, etc... (Coming Soon)
 
 ##Updates
 v1.0 - Created this file, added replacements for color codes
@@ -64,6 +67,8 @@ v1.3 - Added support for New Line, and Spaces because spaces were buggy. The ```
 v2.0 - A complete recode. Now fixed Bug #2, 'Having multiple formatting codes does not work'. New line and spaces was removed.
 
 v3.0 - Added §k, §r, and \n support. Now also requires the output element ID.
+
+v3.1 - Finally! Support for class names too!
 
 ##Terms of Service
 By using this JS file, you agree to the Terms of Conditions below.
