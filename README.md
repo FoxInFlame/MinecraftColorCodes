@@ -18,11 +18,14 @@ Now you can use it!
 ##Usage
 Example:
 ```
+<script>
 var yourMOTD = "§d§lnerd.nu§8: §6§oCreative Rev 28";
-var myHTMLMotd = replaceColorCodes(yourMOTD);
-//console.log(myHTMLMotd);
+replaceColorCodes(yourMOTD, "outputDiv");
+<script>
+<div id="outputDiv"></div>
 ```
-Simple enough. Put the string you want in the function ```replaceColorCodes()```, and voila! You can then do whatever you like with it!
+Simple enough. Put the string you want in the function ```replaceColorCodes()```, and place the ID of the output element, and voila! You can then do whatever you like with it!
+Do note that only ID's currently work, and the script will probably overwrite anything inside the element. I would suggest you use a ```span``` element with the ID of your choice.
 
 ##Extras
 You might want to get your server's MOTD, but you don't know how to access the server from your website?
@@ -42,10 +45,12 @@ $(document).ready(function(){
 https://mcapi.us provides JSON responses from the server provided in the URL. By using this, you can parse the JSON, and get your desired information! Visit http://mcapi.us for more information on the JSON format.
 
 
-##Bugs
+##Bugs / ToDo
 No Bugs Found.
 
 If you find one, please submit a ticket.
+
+- Add Class support (Coming Soon)
 
 ##Updates
 v1.0 - Created this file, added replacements for color codes
