@@ -48,7 +48,7 @@ https://mcapi.us provides JSON responses from the server provided in the URL. By
 
 
 ##Bugs / ToDo
-No Bugs Found.
+~~Spaces get dissapeared~~
 
 If you find one, please submit a ticket.
 
@@ -69,6 +69,8 @@ v2.0 - A complete recode. Now fixed Bug #2, 'Having multiple formatting codes do
 v3.0 - Added §k, §r, and \n support. Now also requires the output element ID.
 
 v3.1 - Finally! Support for class names too!
+
+v3.5 - Fixed Bug #3, 'Spaces gets disappeared', by adding a CSS property to the output element.
 
 ##Terms of Service
 By using this JS file, you agree to the Terms of Conditions below.
