@@ -63,7 +63,7 @@ v1.3 - Added support for New Line, and Spaces because spaces were buggy. The ```
 
 v2.0 - A complete recode. Now fixed Bug #2, 'Having multiple formatting codes does not work'. New line and spaces was removed.
 
-v3.0 - Added §k, §r, and \n support.
+v3.0 - Added §k, §r, and \n support. Now also requires the output element ID.
 
 ##Terms of Service
 By using this JS file, you agree to the Terms of Conditions below.
