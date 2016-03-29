@@ -75,8 +75,5 @@ v3.1 - Finally! Support for class names too!
 
 v3.5 - Fixed Bug #3, 'Spaces dissappear', by adding a CSS property to the output element.
 
-##Terms of Service
-By using this JS file, you agree to the Terms of Conditions below.
-- You can not modify this file in any way.
-- You can not sell this file for a price.
-- You can not give away this file without giving credit to me.
+##Legal
+You can modify this file in any way, but if you want, create a pull request so I can have a look. Also, try not sell this file/work for a price. I mean come on, if you really want money, go get a proper job. Thirdly and lastly, you can not give away this file/work without giving credit to me, and possibly giving the URL to this Github page. Due to the informality of this piece of text, you could ignore this if you want to.
