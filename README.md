@@ -49,8 +49,9 @@ https://mcapi.us provides JSON responses from the server provided in the URL. By
 ##Bugs / ToDo
 
 - #1 §k does not work.
-- #2 Having multiple formatting codes does not work
-- #3 Spaces disappear
+- #2 Having multiple formatting codes does not work.
+- #3 The spaces disappear, and the output is a whole big chunk of letters.
+- #4 Color Codes should reset previous occuring formatting codes, yet they seem to keep the formatting.
 
 If you find one, please submit a ticket.
 
