@@ -20,14 +20,12 @@ Example:
 ```
 <script>
 var yourMOTD = "§d§lnerd.nu§8: §6§oCreative Rev 28";
-replaceColorCodes(yourMOTD, "outputDiv");
+var newMOTD = yourMOTD.replaceColorCodes();
+console.log(newMOTD);
 <script>
-<div id="outputDiv"></div>
 ```
-Simple enough. Put the string you want in the function ```replaceColorCodes()```, and place the ID or class of the output element, and voila! You can then do whatever you like with it!
-When using a class, the script will find the first match. 
+Simple enough. Get your string, attach the function at the end (Don't forget the brackets, they are essential) and voila! You can then do whatever you like with it!
 
-Do note that the script will probably overwrite anything inside the element. I would suggest you use a ```span``` element with the class or id of your choice.
 
 ##Extras
 You might want to get your server's MOTD, but you don't know how to access the server from your website?
@@ -36,9 +34,10 @@ Use this code! (jQuery needed)
 $(document).ready(function(){
   $.getJSON('https://mcapi.us/server/status?ip=c.nerd.nu', function(obj){
     if(obj.online === true){
-      motdHTML = replaceColorCodes(obj.motd, "myDiv");
+      motdHTML = obj.motd.replaceColorCodes();
+      console.log(motdHTML);
     } else {
-      document.getElementById("myDiv").innerHTML = "Server is offline...";
+      console.log("Server is offline...");
     }
   });
 })
@@ -48,15 +47,17 @@ https://mcapi.us provides JSON responses from the server provided in the URL. By
 
 ##Bugs / ToDo
 
-- #1 §k does not work.
-- #2 Having multiple formatting codes does not work.
-- #3 The spaces disappear, and the output is a whole big chunk of letters.
-- #4 Color Codes should reset previous occuring formatting codes, yet they seem to keep the formatting.
+- #1 §k does not work. (FIXED IN VERSION 3.0)
+- #2 Having multiple formatting codes does not work. (FIXED IN VERSION 2.0)
+- #3 The spaces disappear, and the output is a whole big chunk of letters. (FIXED IN VERSION 3.5)
+- #4 Color Codes should reset previous occuring formatting codes, yet they seem to keep the formatting. (FIXED IN VERSION 3.7)
 
-If you find one, please submit a ticket.
+If you find one, please submit a ticket or a pull request.
 
-- Add Class support (DONE!)
-- Add Support for custom class, like first match, second match, etc... (Coming Soon)
+- Add Class support (DROPPED!)
+- Add Support for custom class, like first match, second match, etc... (DROPPED!)
+- Put everything in a huge String.prototype function. (DONE!)
+- Fix Bugs (DONE FOR ALL LISTED)
 
 ##Updates
 v1.0 - Created this file, added replacements for color codes
@@ -73,7 +74,9 @@ v3.0 - Added §k, §r, and \n support. Now also requires the output element ID.
 
 v3.1 - Finally! Support for class names too!
 
-v3.5 - Fixed Bug #3, 'Spaces dissappear', by adding a CSS property to the output element.
+v3.5 - Fixed Bug #3, 'Spaces dissappear', by adding a CSS property to the output element.'
+
+v3.7 - Fixed Bug #4, put everything in a huge ```String.prototype``` function, so now you can't input your output element ID/Class. I mean come on, what if you just wanted to output to the console? I also changed a few tweaks here and there.
 
 ##Legal
 You can modify this file in any way, but if you want, create a pull request so I can have a look. Also, try not sell this file/work for a price. I mean come on, if you really want money, go get a proper job. Thirdly and lastly, you can not give away this file/work without giving credit to me, and possibly giving the URL to this Github page. Due to the informality of this piece of text, you could ignore this if you want to.
