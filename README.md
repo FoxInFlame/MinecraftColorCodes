@@ -53,7 +53,7 @@ https://mcapi.us provides JSON responses from the server provided in the URL. By
 - #3 The spaces disappear, and the output is a whole big chunk of letters. (FIXED IN VERSION 3.5)
 - #4 Color Codes should reset previous occuring formatting codes, yet they seem to keep the formatting. (FIXED IN VERSION 3.7)
 
-If you find one, please submit a ticket or a pull request.
+If you find one, please submit an issue ticket or a pull request.
 
 - Add Class support (DROPPED!)
 - Add Support for custom class, like first match, second match, etc... (DROPPED!)
