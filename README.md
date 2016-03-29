@@ -1,18 +1,19 @@
 # MinecraftColorCodes
-This is my first JS file, so please, be patient if you find any bugs. I will try and fix it.
 Minecraft has it's own Color Code system, in which they use § characters.
-This JS file I made will translate all color codes into HTML, so you can insert it in your website.
+This JS library I made will translate all color codes into HTML, so you can insert it in your website.
 
 ##Installation
 Download this as a zip, and open the zip.
 Place MinecraftColorCodes.js in the directory you want.
-In the file you have the string want to translate, link the JS file in your ``` head ``` tag.
+In the webpage you have the string want to translate, link the JS file in your ``` head ``` tag.
 Like so:
 ```
 <head>
 <script src="MinecraftColorCodes.js"></script>
 </head>
 ```
+You can also link the JS file at the bottom of the webpage, right before the ```body``` tag. 
+
 Now you can use it!
 
 ##Usage
