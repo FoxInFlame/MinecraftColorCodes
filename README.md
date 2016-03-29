@@ -36,10 +36,9 @@ Use this code! (jQuery needed)
 $(document).ready(function(){
   $.getJSON('https://mcapi.us/server/status?ip=c.nerd.nu', function(obj){
     if(obj.online === true){
-      motdHTML = replaceColorCodes(obj.motd);
-      console.log(motdHTML);
+      motdHTML = replaceColorCodes(obj.motd, "myDiv");
     } else {
-      console.log("Server is offline...");
+      document.getElementById("myDiv").innerHTML = "Server is offline...";
     }
   });
 })
@@ -48,7 +47,10 @@ https://mcapi.us provides JSON responses from the server provided in the URL. By
 
 
 ##Bugs / ToDo
-~~Spaces get dissapeared~~
+
+- #1 §k does not work.
+- #2 Having multiple formatting codes does not work
+- #3 Spaces disappear
 
 If you find one, please submit a ticket.
 
@@ -70,7 +72,7 @@ v3.0 - Added §k, §r, and \n support. Now also requires the output element ID.
 
 v3.1 - Finally! Support for class names too!
 
-v3.5 - Fixed Bug #3, 'Spaces gets disappeared', by adding a CSS property to the output element.
+v3.5 - Fixed Bug #3, 'Spaces dissappear', by adding a CSS property to the output element.
 
 ##Terms of Service
 By using this JS file, you agree to the Terms of Conditions below.
