@@ -1,3 +1,4 @@
+
 var obfuscators = [];
 var styleMap = {
     '§4': 'font-weight:normal;text-decoration:none;color:#be0000',
@@ -23,10 +24,11 @@ var styleMap = {
 };
 function obfuscate(string, elem) {
     var magicSpan,
-        currNode;
+        currNode,
+        len = elem.childNodes.length;
     if(string.indexOf('<br>') > -1) {
         elem.innerHTML = string;
-        for(var j = 0, len = elem.childNodes.length; j < len; j++) {
+        for(var j = 0; j < len; j++) {
             currNode = elem.childNodes[j];
             if(currNode.nodeType === 3) {
                 magicSpan = document.createElement('span');
@@ -79,18 +81,17 @@ function parseStyle(string) {
         indexDelta,
         noCode,
         final = document.createDocumentFragment(),
-        len = codes.length;
-        i;
+        len = codes.length,
         string = string.replace(/\n|\\n/g, '<br>');
     
-    for(i = 0; i < len; i++) {
+    for(var i = 0; i < len; i++) {
         indexes.push( string.indexOf(codes[i]) );
         string = string.replace(codes[i], '\x00\x00');
     }
     if(indexes[0] !== 0) {
         final.appendChild( applyCode( string.substring(0, indexes[0]), [] ) );
     }
-    for(i = 0; i < len; i++) {
+    for(var i = 0; i < len; i++) {
     	indexDelta = indexes[i + 1] - indexes[i];
         if(indexDelta === 2) {
             while(indexDelta === 2) {
