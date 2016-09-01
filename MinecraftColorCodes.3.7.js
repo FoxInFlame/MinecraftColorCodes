@@ -58,11 +58,11 @@ function obfuscate(string, elem) {
     }
 }
 function applyCode(string, codes) {
+    var len = codes.length
     var elem = document.createElement('span'),
         obfuscated = false;
-    for(var i = 0, len = codes.length; i < len; i++) {
+    for(var i = 0; i < len; i++) {
         elem.style.cssText += styleMap[codes[i]] + ';';
-        if(codes[i] === '§l')
         if(codes[i] === '§k') {
             obfuscate(string, elem);
             obfuscated = true;
@@ -76,12 +76,14 @@ function parseStyle(string) {
         indexes = [],
         apply = [],
         tmpStr,
-        deltaIndex,
+        indexDelta,
         noCode,
         final = document.createDocumentFragment(),
+        len = codes.length;
         i;
-    string = string.replace(/\n|\\n/g, '<br>');
-    for(i = 0, len = codes.length; i < len; i++) {
+        string = string.replace(/\n|\\n/g, '<br>');
+    
+    for(i = 0; i < len; i++) {
         indexes.push( string.indexOf(codes[i]) );
         string = string.replace(codes[i], '\x00\x00');
     }
