@@ -58,7 +58,7 @@ function obfuscate(string, elem) {
     }
 }
 function applyCode(string, codes) {
-    var len = codes.length
+    var len = codes.length;
     var elem = document.createElement('span'),
         obfuscated = false;
     for(var i = 0; i < len; i++) {
