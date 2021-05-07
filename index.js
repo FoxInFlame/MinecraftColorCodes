@@ -45,7 +45,7 @@ function obfuscate(string, elem) {
         }, 0));
     }
     function replaceRand(string, i) {
-        let randChar = String.fromCharCode(Math.floor(Math.random() * (27)) + 64);
+        let randChar = String.fromCharCode(Math.floor(Math.random() * 27) + 64);
         return string.substr(0, i) + randChar + string.substr(i + 1, string.length);
     }
 }
