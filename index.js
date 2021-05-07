@@ -92,9 +92,9 @@ function parseStyle(string) {
             apply.push(codes[i]);
         }
         else apply.push(codes[i]);
-        if (apply.lastIndexOf("§r") > -1) apply = apply.slice( apply.lastIndexOf("§r") + 1 );
-        tmpStr = string.substring( indices[i], indices[i + 1] );
-        final.appendChild( applyCode(tmpStr, apply) );
+        if (apply.lastIndexOf("§r") > -1) apply = apply.slice(apply.lastIndexOf("§r") + 1);
+        tmpStr = string.substring(indices[i], indices[i + 1]);
+        final.appendChild(applyCode(tmpStr, apply));
     }
     return final;
 }
